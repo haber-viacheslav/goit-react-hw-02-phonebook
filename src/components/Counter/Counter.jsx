@@ -8,6 +8,8 @@ export class Counter extends Component {
     initialValue: 0,
   };
 
+  // Counter
+
   static propTypes = {
     initialValue: PropTypes.number.isRequired,
   };
