@@ -1,6 +1,15 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import { string, object } from 'yup';
 import 'yup-phone';
+import PropTypes from 'prop-types';
+import {
+  FormWrap,
+  FormErrorMessage,
+  FormInput,
+  FormLabel,
+  FormInputWrp,
+  FormButton,
+} from './ContactForm.styled';
 const initialValues = {
   name: '',
   number: '',
@@ -23,23 +32,27 @@ const ContactForm = ({ onSubmit }) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <Form autoComplete="off">
-        <label htmlFor="name">
-          Name
-          <Field type="text" name="name" />
-          <ErrorMessage name="name" component="div" />
-        </label>
+      <FormWrap autoComplete="off">
+        <FormInputWrp htmlFor="name">
+          <FormLabel>Name</FormLabel>
+          <FormInput type="text" name="name" />
+          <FormErrorMessage name="name" component="div" />
+        </FormInputWrp>
 
-        <label htmlFor="number">
-          Number
-          <Field type="tel" name="number" />
-          <ErrorMessage name="number" component="div" />
-        </label>
+        <FormInputWrp htmlFor="number">
+          <FormLabel>Number</FormLabel>
+          <FormInput type="tel" name="number" />
+          <FormErrorMessage name="number" component="div" />
+        </FormInputWrp>
 
-        <button type="submit">Add contact</button>
-      </Form>
+        <FormButton type="submit">Add contact</FormButton>
+      </FormWrap>
     </Formik>
   );
+};
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
