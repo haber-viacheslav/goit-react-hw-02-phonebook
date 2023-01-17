@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 export const FormWrap = styled(Form)`
+  width: 500px;
   display: flex;
   flex-direction: column;
   gap: 30px;
